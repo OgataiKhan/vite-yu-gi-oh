@@ -18,8 +18,10 @@ export default {
   created() {
     axios.get(store.apiURL).then((response) => {
       store.cards = response.data.data;
-      console.log(store.cards);
-    });
+    })
+      .finally(() => {
+        store.isLoading = false;
+      });;
   },
 };
 
