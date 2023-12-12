@@ -4,6 +4,8 @@ TYPOGRAPHY
 *********
 */
 
+@use './variables' as *;
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -15,4 +17,12 @@ h1 {
 
 #archetype-selector {
   font-size: 1rem;
+}
+
+.cards-container {
+  color: $secondary-color;
+}
+
+.cards-found {
+  font-weight: 700;
 }

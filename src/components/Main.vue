@@ -31,7 +31,7 @@ main {
   .container {
     max-width: 1250px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 25px 15px;
   }
 }
 </style>
