@@ -1,8 +1,13 @@
 <script>
+import { store } from '../store';
 
 export default {
   name: 'ArchetypeSelector',
-
+  data() {
+    return {
+      store,
+    };
+  },
 };
 
 </script>

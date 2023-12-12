@@ -2,7 +2,7 @@
 
 export default {
   name: 'Card',
-
+  props: ['name', 'archetype', 'image'],
 };
 
 </script>
@@ -10,11 +10,11 @@ export default {
 <template>
   <li class="card-box">
     <div class="card-img">
-      <!-- <img :src="thumb" :alt="series"> -->
-      Image
+      <img :src="image" :alt="name">
+      
     </div>
-    <h3>Card Name</h3>
-    <p>Card Archetype</p>
+    <h3>{{ name }}</h3>
+    <p>{{ archetype }}</p>
   </li>
 </template>
 
@@ -25,5 +25,8 @@ li {
   background-color: $primary-color;
   text-align: center;
   width: calc((100% - (25px * 4)) / 5);
+  h3 {
+    padding: 20px;
+  }
 }
 </style>

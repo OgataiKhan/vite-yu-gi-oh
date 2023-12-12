@@ -1,12 +1,25 @@
 <script>
+import axios from 'axios';
 import MainArchetype from './MainArchetype.vue';
 import MainCards from './MainCards.vue';
+import { store } from '../store';
 
 export default {
   name: 'Main',
   components: {
     MainArchetype,
     MainCards,
+  },
+  data() {
+    return {
+      store,
+    };
+  },
+  created() {
+    axios.get(store.apiURL).then((response) => {
+      store.cards = response.data.data;
+      console.log(store.cards);
+    });
   },
 };
 

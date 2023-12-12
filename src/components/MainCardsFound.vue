@@ -1,14 +1,19 @@
 <script>
+import { store } from '../store';
 
 export default {
   name: 'MainCardsFound',
-  
+  data() {
+    return {
+      store,
+    };
+  },
 };
 
 </script>
 
 <template>
-  <p class="cards-found">Found XX cards</p>
+  <p class="cards-found">Found {{ store.cards.length }} cards</p>
 </template>
 
 <style lang="scss" scoped>

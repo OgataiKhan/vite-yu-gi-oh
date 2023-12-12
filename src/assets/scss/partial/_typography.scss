@@ -26,3 +26,13 @@ h1 {
 .cards-found {
   font-weight: 700;
 }
+
+h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.card-box p {
+  padding-bottom: 8px;
+  color: $tertiary-color;
+}

@@ -1,12 +1,19 @@
 <script>
 import MainCardsFound from './MainCardsFound.vue';
 import MainCardsCard from './MainCardsCard.vue';
+import { store } from '../store';
 
 export default {
-  name: 'Cards',
+  name: 'MainCards',
+  props: ['name', 'archetype', 'image'],
   components: {
     MainCardsFound,
     MainCardsCard,
+  },
+  data() {
+    return {
+      store,
+    };
   },
 };
 
@@ -17,13 +24,7 @@ export default {
     <div class="cards-container">
       <MainCardsFound />
       <ul class="cards-list">
-        <MainCardsCard />
-        <MainCardsCard />
-        <MainCardsCard />
-        <MainCardsCard />
-        <MainCardsCard />
-        <MainCardsCard />
-        <MainCardsCard />
+        <MainCardsCard v-for="card in store.cards" :name="card.name" :archetype="card.archetype" :image="card.card_images[0].image_url" />
       </ul>
     </div>
   </section>
