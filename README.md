@@ -1,6 +1,3 @@
-# VueJS Vite starting template
+# Vite Yu-Gi-Oh
 
-```
-npm install
-npm run dev
-```
+In this project I get data from an API to populate a grid of Yu-Gi-Oh cards. I use props and state management to pass the data to where it is needed.
