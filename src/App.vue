@@ -1,6 +1,15 @@
 <script>
+import Header from './components/Header.vue';
+import Main from './components/Main.vue';
+import Footer from './components/Footer.vue';
+
 export default {
-  name: 'DefaultTemplate',
+  name: 'App',
+  components: {
+    Header,
+    Main,
+    Footer,
+  },
 
   data() {
     return {
@@ -11,7 +20,9 @@ export default {
 </script>
 
 <template>
-  <h1>{{ text }}</h1>
+  <Header />
+  <Main />
+  <Footer />
 </template>
 
-<style scoped lang="scss"></style>
+<style lang="scss"></style>
