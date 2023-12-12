@@ -11,11 +11,6 @@ export default {
     Footer,
   },
 
-  data() {
-    return {
-      text: 'Template VueJS',
-    };
-  },
 };
 </script>
 
