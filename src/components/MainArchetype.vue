@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import { store } from '../store';
 
 export default {
@@ -8,6 +9,14 @@ export default {
       store,
     };
   },
+  created() {
+    axios.get(store.apiArchetypesURL).then((response) => {
+      store.archetypes = response.data;
+    })
+      .finally(() => {
+        store.isLoading = false;
+      });;
+  },
 };
 
 </script>
@@ -15,7 +24,8 @@ export default {
 <template>
   <label for="archetype-selector">Choose an archetype:</label>
   <select name="archetype" id="archetype-selector">
-    <option value="alien">Alien</option>
+    <option selected value="">Select Archetype...</option>
+    <option v-for="archetype in store.archetypes" value="alien">{{ archetype.archetype_name }}</option>
   </select>
 </template>
 
@@ -25,7 +35,7 @@ label {
 }
 
 #archetype-selector {
-  width: 163px;
+  min-width: 160px;
   border: 1px solid #CED4DA;
   border-radius: 5px;
   padding: 8px 15px 8px 10px;
