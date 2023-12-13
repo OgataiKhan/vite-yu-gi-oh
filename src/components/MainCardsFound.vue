@@ -8,12 +8,17 @@ export default {
       store,
     };
   },
+  computed: {
+    cardsFound() {
+      return `Found ${store.cards.length} cards`;
+    },
+  },
 };
 
 </script>
 
 <template>
-  <p class="cards-found">Found {{ store.cards.length }} cards</p>
+  <p class="cards-found">{{ cardsFound }}</p>
 </template>
 
 <style lang="scss" scoped>
