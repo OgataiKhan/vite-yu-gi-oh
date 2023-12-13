@@ -29,4 +29,17 @@ li {
     padding: 20px;
   }
 }
+
+@media screen and (max-width: 991px) {
+  li {
+    width: calc((100% - (25px * 2)) / 3);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  li {
+    width: calc((100% - (25px * 1)) / 2);
+  }
+}
+
 </style>
