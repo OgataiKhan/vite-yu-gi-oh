@@ -4,6 +4,7 @@ import { store } from '../store';
 
 export default {
   name: 'ArchetypeSelector',
+  emits: ['archetypeSelection'],
   data() {
     return {
       store,
@@ -23,9 +24,9 @@ export default {
 
 <template>
   <label for="archetype-selector">Choose an archetype:</label>
-  <select name="archetype" id="archetype-selector">
+  <select name="archetype" id="archetype-selector" v-model="store.selectedArchetype" @change="$emit('archetypeSelection')">
     <option selected value="">Select Archetype...</option>
-    <option v-for="archetype in store.archetypes" :value="archetype_name">{{ archetype.archetype_name }}</option>
+    <option v-for="archetype in store.archetypes" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
   </select>
 </template>
 
@@ -35,7 +36,7 @@ label {
 }
 
 #archetype-selector {
-  min-width: 160px;
+  min-width: 267px;
   border: 1px solid #CED4DA;
   border-radius: 5px;
   padding: 8px 15px 8px 10px;

@@ -15,13 +15,29 @@ export default {
       store,
     };
   },
+  methods: {
+    cardSearch() {
+      store.isLoading = true;
+      if (store.selectedArchetype === '') {
+        axios.get(store.apiURL + '?num=20&offset=0').then((response) => {
+          store.cards = response.data.data;
+        })
+          .finally(() => {
+            store.isLoading = false;
+          });;
+      } else {
+        axios.get(store.apiURL + '?archetype=' + store.selectedArchetype + '&num=20&offset=0').then((response) => {
+        store.cards = response.data.data;
+      })
+        .finally(() => {
+          store.isLoading = false;
+        });;
+      }
+
+    }
+  },
   created() {
-    axios.get(store.apiURL).then((response) => {
-      store.cards = response.data.data;
-    })
-      .finally(() => {
-        store.isLoading = false;
-      });;
+    this.cardSearch();
   },
 };
 
@@ -30,7 +46,7 @@ export default {
 <template>
   <main>
     <div class="container">
-      <MainArchetype />
+      <MainArchetype @archetypeSelection="cardSearch" />
       <MainCards />
     </div>
   </main>
